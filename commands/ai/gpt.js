@@ -1,49 +1,48 @@
 const fetch = require('node-fetch');
+const config = require('../../config.json');
 
 module.exports = {
     name: 'gpt',
     category: 'ai',
-    description: 'Chat with GPT AI',
+    description: 'Chat with GPT-4 AI',
     usage: '§gpt <question>',
     async execute(sock, msg, args, extra) {
         if (!args.length) {
-            return extra.reply('❌ Ask me something!\nExample: §gpt What is the capital of France?');
+            return extra.reply(`❌ *Usage:* §gpt <question>\n\nExample: §gpt What is the meaning of life?`);
         }
-
+        
         const question = args.join(' ');
-        const apiKey = global.config?.apiKeys?.openai || process.env.OPENAI_API_KEY;
-
-        if (!apiKey) {
-            return extra.reply('❌ OpenAI API key not configured. Please set OPENAI_API_KEY in .env');
-        }
-
-        await extra.reply('⏳ *Thinking...*');
-
+        await extra.reply('⏳ *Generating response...*');
+        
         try {
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${apiKey}`,
+                    'Authorization': `Bearer ${config.openaiKey}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
-                    messages: [{ role: 'user', content: question }],
+                    messages: [
+                        { role: 'system', content: 'You are a helpful AI assistant named Voltaria.' },
+                        { role: 'user', content: question }
+                    ],
                     max_tokens: 500
                 })
             });
-
+            
             const data = await response.json();
             
-            if (!response.ok) {
-                throw new Error(data.error?.message || 'API error');
+            if (data.error) {
+                return await extra.reply(`❌ *Error:* ${data.error.message}`);
             }
-
-            const answer = data.choices[0]?.message?.content || 'No response received';
-            await extra.reply(`🤖 *GPT:*\n\n${answer}`);
+            
+            const reply = data.choices[0].message.content;
+            await extra.reply(`🤖 *GPT-4 Response:*\n\n${reply}`);
+            
         } catch (error) {
-            console.error('GPT Error:', error);
-            await extra.reply('❌ Error: ' + error.message);
+            console.error(error);
+            await extra.reply('❌ *Error:* Failed to get response from GPT. Please try again later.');
         }
     }
 };
