@@ -1,222 +1,146 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/Voltaria-Nexus-blueviolet?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Voltaria Nexus" width="300px">
+</p>
 
-    body {
-        background: linear-gradient(135deg, #0a0f1e 0%, #0c1222 100%);
-        font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
+<h1 align="center">⚡ VOLTARIA NEXUS ⚡</h1>
 
-    .container {
-        max-width: 550px;
-        width: 100%;
-        background: rgba(18, 25, 45, 0.7);
-        backdrop-filter: blur(10px);
-        border-radius: 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        overflow: hidden;
-        box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
-    }
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-UNDER_DEVELOPMENT-red?style=for-the-badge&logo=github">
+  <br>
+  <a href="https://github.com/akiraxyd-005/Voltaria-v2.0/fork">
+    <img src="https://img.shields.io/github/forks/akiraxyd-005/Voltaria-v2.0?label=Fork&style=social">
+  </a>
+  <a href="https://github.com/akiraxyd-005/Voltaria-v2.0/stargazers">
+    <img src="https://img.shields.io/github/stars/akiraxyd-005/Voltaria-v2.0?style=social">
+  </a>
+  <img src="https://img.shields.io/github/license/akiraxyd-005/Voltaria-v2.0?style=flat-square">
+</p>
 
-    .header {
-        background: linear-gradient(95deg, #6b21a5 0%, #d946ef 100%);
-        padding: 1.5rem;
-        text-align: center;
-    }
+<p align="center">
+  <a href="https://github.com/Arashi005">
+    <img src="https://img.shields.io/badge/Developer-Arashi-white?style=flat-square&logo=github">
+  </a>
+  <a href="https://github.com/akiraxyd-005">
+    <img src="https://img.shields.io/badge/Contributor-akiraxyd-white?style=flat-square&logo=github">
+  </a>
+</p>
 
-    .header h1 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        color: white;
-    }
+<p align="center">
+  <a href="https://whatsapp.com/channel/0029VbD6zwN4tRrvLtUTya0I">
+    <img src="https://img.shields.io/badge/Join%20Channel-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
+  </a>
+  <a href="https://chat.whatsapp.com/CbM5xDquhcC89Cejis5mbr">
+    <img src="https://img.shields.io/badge/Join%20Community-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
+  </a>
+</p>
 
-    .header p {
-        color: rgba(255,255,255,0.85);
-        font-size: 0.85rem;
-        margin-top: 8px;
-    }
+---
 
-    .badge {
-        background: rgba(0,0,0,0.3);
-        display: inline-block;
-        padding: 4px 10px;
-        border-radius: 40px;
-        font-size: 0.7rem;
-        font-weight: 500;
-        margin-top: 8px;
-    }
+## 🚧 UNDER DEVELOPMENT
 
-    .content {
-        padding: 2rem 1.5rem;
-    }
+> **⚠️ This bot is currently under active development.**  
+> Commands are being added gradually. Some features may not work yet.  
+> Check back regularly for updates!
 
-    .server-selector {
-        background: #0f1425;
-        border-radius: 1.2rem;
-        padding: 1rem;
-        margin-bottom: 1.8rem;
-        border: 1px solid #1e2a3e;
-    }
+---
 
-    .server-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-        gap: 10px;
-        margin-top: 12px;
-    }
+## 📌 Table of Contents
 
-    .server-btn {
-        background: #0a0f1a;
-        border: 1px solid #1f2a3e;
-        padding: 8px 5px;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        color: #b9c3d4;
-    }
+- [⚠️ Warning](#️-warning)
+- [✨ Planned Features](#-planned-features)
+- [🚀 Deploy](#-deploy)
+- [🆘 Support](#-support)
+- [📜 License](#-license)
 
-    .server-btn.active {
-        background: linear-gradient(95deg, #6b21a5, #c026d3);
-        border-color: #c241ff;
-        color: white;
-        box-shadow: 0 0 8px rgba(192, 38, 211, 0.4);
-    }
+---
 
-    .input-group {
-        margin-bottom: 1.8rem;
-    }
+## ⚠️ Warning
 
-    .input-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 500;
-        color: #cbd5e6;
-        font-size: 0.85rem;
-    }
+> **This bot is NOT affiliated with WhatsApp Inc.**  
+> Overuse may result in account ban.  
+> Use for **Educational / Fun / Group Management** purposes only.  
+> The developers are not responsible for misuse.
 
-    .phone-input {
-        display: flex;
-        background: #0f1425;
-        border-radius: 1rem;
-        border: 1px solid #1e2a3e;
-        overflow: hidden;
-    }
+---
 
-    .country-code {
-        background: #1a1f32;
-        padding: 0 15px;
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        color: white;
-        border-right: 1px solid #2d3a4e;
-    }
+## ✨ Planned Features
 
-    .phone-input input {
-        flex: 1;
-        background: transparent;
-        border: none;
-        padding: 14px 15px;
-        color: white;
-        font-size: 1rem;
-        outline: none;
-    }
+| Category | Commands |
+|----------|----------|
+| 💰 **Economy** | Currency, bank, cards, shop, leaderboard |
+| 🎰 **Gambling** | Coinflip, Slots, Blackjack, Dice |
+| 🎮 **Games** | Tic Tac Toe, Hangman, Trivia, Riddle, Wordle, Guess Song, Who Am I |
+| 👥 **Group** | Welcome/Goodbye, antilink, warn/kick, tagall, polls |
+| 🤖 **AI** | Gemini AI, GPT chat, image generation |
+| 📥 **Download** | YouTube, TikTok, Instagram, Twitter, Spotify |
+| 🎭 **Reactions** | Hug, kiss, pat, slap, dance (GIFs) |
+| 🎵 **Audio** | Voice effects (deep, robot, nightcore, etc.) |
+| 🔞 **Hentai** | Coming soon |
+| 👑 **Owner** | Broadcast, restart, ban, sudo, mode |
+| 🔧 **Utilities** | AFK, calculator, fetch, time, weather, and more |
 
-    .generate-btn {
-        width: 100%;
-        background: linear-gradient(95deg, #2563eb, #7c3aed);
-        border: none;
-        padding: 14px;
-        border-radius: 1.2rem;
-        font-weight: 700;
-        font-size: 1rem;
-        color: white;
-        cursor: pointer;
-        transition: all 0.2s;
-        margin-bottom: 1.5rem;
-    }
+> **Note:** All features are being developed progressively. Some may not be fully functional yet.
 
-    .generate-btn:active {
-        transform: scale(0.97);
-    }
+---
 
-    .code-box {
-        background: #0b0f1a;
-        border-radius: 1rem;
-        padding: 1rem;
-        text-align: center;
-        border: 1px dashed #3b4b6e;
-    }
+## 🚀 Deploy
 
-    .code-label {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #7c8db0;
-    }
+| Platform | Button |
+|----------|--------|
+| **Railway** | <a href="https://railway.app/template/YOUR_TEMPLATE_ID_HERE"><img src="https://railway.app/button.svg" alt="Deploy on Railway" height="30"></a> |
+| **Render** | <a href="https://render.com/deploy"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy on Render" height="30"></a> |
 
-    .code-value {
-        font-size: 2.2rem;
-        font-weight: 800;
-        letter-spacing: 4px;
-        font-family: monospace;
-        background: #010101;
-        padding: 12px;
-        border-radius: 14px;
-        margin: 12px 0;
-        color: #a5f3ff;
-        word-break: break-all;
-    }
+### Manual Setup
 
-    .copy-btn {
-        background: #1e2a3a;
-        border: none;
-        padding: 8px 20px;
-        border-radius: 30px;
-        color: white;
-        font-size: 0.75rem;
-        cursor: pointer;
-    }
+```bash
+git clone https://github.com/akiraxyd-005/Voltaria-v2.0.git
+cd Voltaria-v2.0
+npm install
+npm start
+```
 
-    .footer {
-        font-size: 0.7rem;
-        text-align: center;
-        color: #5a6e8a;
-        padding: 1rem;
-        border-top: 1px solid #1a2538;
-    }
+---
 
-    .toast {
-        position: fixed;
-        bottom: 25px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #1e293b;
-        color: #bbf0ff;
-        padding: 8px 18px;
-        border-radius: 50px;
-        font-size: 0.8rem;
-        z-index: 999;
-        opacity: 0;
-        transition: 0.2s;
-    }
+🆘 Support
 
-    @media (max-width: 480px) {
-        .server-grid {
-            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-        }
-        .code-value {
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-        }
-    }
-</style>
+Platform Link
+WhatsApp Group Join Community
+Channel Voltaria Updates
+
+Note: Support is provided ONLY for deployment/setup issues, not custom development.
+
+---
+
+👥 Credits
+
+Role Name GitHub
+Developer Arashi @Arashi005
+Contributor akiraxyd @akiraxyd-005
+Framework Baileys WhiskeySockets/Baileys
+
+---
+
+📛 Legal Disclaimer
+
+· Use your own configuration for privacy and security.
+· Heavy modifications are at your own risk — we cannot support every custom fork.
+· We are not responsible for harm caused by individuals running this bot in groups.
+
+---
+
+📜 License
+
+This project is licensed under the MIT License – see the LICENSE file for details.
+
+---
+
+<p align="center">
+  <b>⭐ Don't forget to star this repository ⭐</b>
+</p>
+
+<p align="center">
+  <b>© POWERED BY N£XUS</b>
+</p>
+```
+
+---
