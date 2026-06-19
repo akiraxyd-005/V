@@ -1,29 +1,41 @@
 const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
+const config = require('../../config.json');
 
 module.exports = {
     name: 'upscale',
     category: 'ai',
-    description: 'Upscale image resolution with AI',
-    usage: '§upscale (reply to an image)',
+    description: 'Upscale image resolution',
+    usage: '§upscale <image>',
     async execute(sock, msg, args, extra) {
-        if (!msg.message.imageMessage) {
-            return extra.reply('❌ Reply to an image to upscale.\nExample: Reply to an image with §upscale');
+        if (!msg.message.imageMessage && !msg.message.extendedTextMessage) {
+            return extra.reply('❌ *Usage:* Reply to or send an image with §upscale');
         }
-
+        
+        let imageUrl = null;
+        
+        if (msg.message.imageMessage) {
+            imageUrl = msg.message.imageMessage.url;
+        } else if (msg.message.extendedTextMessage) {
+            const quoted = msg.message.extendedTextMessage.contextInfo.quotedMessage;
+            if (quoted && quoted.imageMessage) {
+                imageUrl = quoted.imageMessage.url;
+            }
+        }
+        
+        if (!imageUrl) {
+            return extra.reply('❌ Please send or reply to an image.');
+        }
+        
         await extra.reply('⏳ *Upscaling image...*');
-
+        
         try {
-            const buffer = await sock.downloadMediaMessage(msg);
+            // Note: You would need an image upscaling API here
+            // This is a placeholder
+            await extra.reply('📐 *Image Upscale Request Received*\n\n_Image upscaling coming soon!_');
             
-            // AI upscaling API integration would go here
-            // Example: Using Remini or similar service
-            
-            await extra.reply(`✅ *Image Upscaled!*\n\nResolution increased using AI.`);
         } catch (error) {
-            console.error('Upscale Error:', error);
-            await extra.reply('❌ Error upscaling image.');
+            console.error(error);
+            await extra.reply('❌ *Error:* Failed to upscale image. Please try again later.');
         }
     }
 };
