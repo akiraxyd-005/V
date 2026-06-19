@@ -1,1 +1,21 @@
-{}
+{
+  "group_id_1": {
+    "antibad": false,
+    "antilink": false,
+    "antic": false,
+    "antistatus": false,
+    "antisticker": false,
+    "welcome": "Welcome @user to the group!",
+    "goodbye": "@user left the group.",
+    "welcomeDm": "Welcome to the group!",
+    "closeTime": null,
+    "openTime": null
+  },
+  "group_id_2": {
+    "antibad": true,
+    "antilink": true,
+    "antic": false,
+    "antistatus": false,
+    "antisticker": true
+  }
+}
