@@ -131,5 +131,4 @@ This project is licensed under the MIT License – see the LICENSE file for deta
 <p align="center">
   <b>© POWERED BY N£XUS</b>
 </p>
-```
 
