@@ -1,35 +1,41 @@
 const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
+const config = require('../../config.json');
 
 module.exports = {
     name: 'enhance',
     category: 'ai',
-    description: 'Enhance image quality with AI',
-    usage: '§enhance (reply to an image)',
+    description: 'Enhance image quality',
+    usage: '§enhance <image>',
     async execute(sock, msg, args, extra) {
-        if (!msg.message.imageMessage) {
-            return extra.reply('❌ Reply to an image to enhance.\nExample: Reply to an image with §enhance');
+        if (!msg.message.imageMessage && !msg.message.extendedTextMessage) {
+            return extra.reply('❌ *Usage:* Reply to or send an image with §enhance');
         }
-
+        
+        let imageUrl = null;
+        
+        if (msg.message.imageMessage) {
+            imageUrl = msg.message.imageMessage.url;
+        } else if (msg.message.extendedTextMessage) {
+            const quoted = msg.message.extendedTextMessage.contextInfo.quotedMessage;
+            if (quoted && quoted.imageMessage) {
+                imageUrl = quoted.imageMessage.url;
+            }
+        }
+        
+        if (!imageUrl) {
+            return extra.reply('❌ Please send or reply to an image.');
+        }
+        
         await extra.reply('⏳ *Enhancing image...*');
-
+        
         try {
-            const buffer = await sock.downloadMediaMessage(msg);
-            const tempPath = path.join(__dirname, '../../temp', `enhance_${Date.now()}.jpg`);
+            // Note: You would need an image enhancement API here
+            // This is a placeholder
+            await extra.reply('✨ *Image Enhancement Request Received*\n\n_Image enhancement coming soon!_');
             
-            fs.writeFileSync(tempPath, buffer);
-            
-            // You would add an AI image enhancement API here
-            // Example: Using Replicate or other services
-            
-            await extra.reply(`✅ *Image Enhanced!*\n\nImage quality improved using AI.`);
-            
-            // Cleanup
-            fs.unlinkSync(tempPath);
         } catch (error) {
-            console.error('Enhance Error:', error);
-            await extra.reply('❌ Error enhancing image.');
+            console.error(error);
+            await extra.reply('❌ *Error:* Failed to enhance image. Please try again later.');
         }
     }
 };
