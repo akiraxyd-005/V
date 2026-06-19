@@ -1,3 +1,4 @@
+
 <p align="center">
   <a href="https://github.com/akiraxyd-005/Voltaria-v2.0">
     </a>
@@ -43,46 +44,45 @@
 
 ---
 
-## ⚠️ Warning
+⚠️ Warning
 
-- This bot is **not made by WhatsApp Inc.** — overuse may result in account ban.
-- Support is provided **only for deployment/setup**, not for custom development.
-- Made for **Educational / Fun / Group Management** purposes only. Arashi is not responsible for misuse.
-
----
-
-## 🎀 Key Features at a Glance
-
-| Category | Details |
-|----------|---------|
-| 💰 **Economy** | Currency, bank, cards, shop, leaderboard |
-| 🎰 **Gambling** | Coinflip, Slots, Blackjack, Dice |
-| 🎮 **Games** | Tic Tac Toe, Hangman, Trivia, Riddle, Wordle, Guess Song, Who Am I |
-| 👥 **Group** | Welcome/Goodbye, antilink, warn/kick, tagall, polls |
-| 🤖 **AI** | Gemini AI, GPT chat, image generation |
-| 📥 **Download** | YouTube, TikTok, Instagram, Twitter, Spotify |
-| 🎭 **Reactions** | Hug, kiss, pat, slap, dance (GIFs) |
-| 🎵 **Audio** | Voice effects (deep, robot, nightcore, etc.) |
-| 👑 **Owner** | Broadcast, restart, ban, sudo, mode |
+· This bot is not made by WhatsApp Inc. — overuse may result in account ban.
+· Support is provided only for deployment/setup, not for custom development.
+· Made for Educational / Fun / Group Management purposes only. Arashi is not responsible for misuse.
 
 ---
 
-## 🆘 Support
+🎀 Key Features at a Glance
 
-- **WhatsApp Group:** [Join Community](https://chat.whatsapp.com/E5vC8SxmkKXJ0ufWRwIc3l)
-- **Channel:** [Voltaria Updates](https://whatsapp.com/channel/0029VbD6zwN4tRrvLtUTya0I)
-- **Note:** Support is provided ONLY for deployment/setup issues, not custom development.
+Category Details
+💰 Economy Currency, bank, cards, shop, leaderboard
+🎰 Gambling Coinflip, Slots, Blackjack, Dice
+🎮 Games Tic Tac Toe, Hangman, Trivia, Riddle, Wordle, Guess Song, Who Am I
+👥 Group Welcome/Goodbye, antilink, warn/kick, tagall, polls
+🤖 AI Gemini AI, GPT chat, image generation
+📥 Download YouTube, TikTok, Instagram, Twitter, Spotify
+🎭 Reactions Hug, kiss, pat, slap, dance (GIFs)
+🎵 Audio Voice effects (deep, robot, nightcore, etc.)
+🔞 Hentai Underdevelopment ⚠️
+👑 Owner Broadcast, restart, ban, sudo, mode
 
 ---
 
-## 🚀 One-Click Deploy
+🆘 Support
+
+· WhatsApp Group: Join Community
+· Channel: Voltaria Updates
+· Note: Support is provided ONLY for deployment/setup issues, not custom development.
+
+---
+
+🚀 One-Click Deploy
 
 <p align="center">
 
-| Platform    | Deploy |
-| ----------- | ------ |
-| **Railway** | <a href="https://railway.app/template/YOUR_TEMPLATE_ID_HERE"><img src="https://railway.app/button.svg" alt="Deploy on Railway" height="32"></a> |
-| **Render**  | <a href="https://render.com/deploy"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy on Render" height="32"></a> |
+Platform Deploy
+Railway <a href="https://railway.app/template/YOUR_TEMPLATE_ID_HERE"><img src="https://railway.app/button.svg" alt="Deploy on Railway" height="32"></a>
+Render <a href="https://render.com/deploy"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy on Render" height="32"></a>
 
 </p>
 
