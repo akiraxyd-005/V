@@ -44,16 +44,6 @@
 
 ---
 
-## 📌 Table of Contents
-
-- [⚠️ Warning](#️-warning)
-- [✨ Planned Features](#-planned-features)
-- [🚀 Deploy](#-deploy)
-- [🆘 Support](#-support)
-- [📜 License](#-license)
-
----
-
 ## ⚠️ Warning
 
 > **This bot is NOT affiliated with WhatsApp Inc.**  
