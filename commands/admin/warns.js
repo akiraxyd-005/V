@@ -2,48 +2,54 @@ const fs = require('fs');
 const warnsPath = './database/warns.json';
 
 module.exports = {
-    name: 'warns',
+    name: 'warn',
     category: 'admin',
-    description: 'View warnings for a member',
-    usage: '§warns @user',
+    description: 'Warn a member',
+    usage: '§warn @user <reason>',
     isGroup: true,
     isAdmin: true,
     async execute(sock, msg, args, extra) {
-        let target = null;
+        if (!msg.message.extendedTextMessage) {
+            return extra.reply('❌ Reply to or tag the user to warn.');
+        }
         
-        if (msg.message.extendedTextMessage) {
-            target = msg.message.extendedTextMessage.contextInfo.participant;
-            if (!target) {
-                const mentioned = msg.message.extendedTextMessage.contextInfo.mentionedJid;
-                if (mentioned && mentioned.length) {
-                    target = mentioned[0];
-                }
+        let target = msg.message.extendedTextMessage.contextInfo.participant;
+        if (!target) {
+            const mentioned = msg.message.extendedTextMessage.contextInfo.mentionedJid;
+            if (mentioned && mentioned.length) {
+                target = mentioned[0];
             }
         }
         
         if (!target) {
-            return extra.reply('❌ Tag or reply to a user to view their warnings.');
+            return extra.reply('❌ Tag or reply to the user to warn.');
         }
         
-        if (!fs.existsSync(warnsPath)) {
-            return extra.reply('✅ This user has no warnings.');
+        const reason = args.length ? args.join(' ') : 'No reason provided';
+        
+        let warns = {};
+        if (fs.existsSync(warnsPath)) {
+            warns = JSON.parse(fs.readFileSync(warnsPath));
         }
         
-        let warns = JSON.parse(fs.readFileSync(warnsPath));
+        if (!warns[extra.from]) warns[extra.from] = {};
+        if (!warns[extra.from][target]) warns[extra.from][target] = [];
         
-        if (!warns[extra.from] || !warns[extra.from][target] || warns[extra.from][target].length === 0) {
-            return extra.reply(`✅ @${target.split('@')[0]} has no warnings.`);
-        }
+        const warnId = warns[extra.from][target].length + 1;
+        warns[extra.from][target].push({
+            id: warnId,
+            reason: reason,
+            date: new Date().toISOString(),
+            warnedBy: msg.key.participant || msg.key.remoteJid
+        });
         
-        const userWarns = warns[extra.from][target];
-        let warnList = userWarns.map((w, i) => 
-            `${i+1}. ${w.reason} (${new Date(w.date).toLocaleDateString()})`
-        ).join('\n');
+        fs.writeFileSync(warnsPath, JSON.stringify(warns, null, 2));
         
         await extra.reply(
-            `⚠️ *Warnings for @${target.split('@')[0]}*\n\n` +
-            `*Total:* ${userWarns.length}\n\n` +
-            `${warnList}`
+            `⚠️ *Warned @${target.split('@')[0]}*\n\n` +
+            `*Reason:* ${reason}\n` +
+            `*Warn Count:* ${warns[extra.from][target].length}\n` +
+            `*Warn ID:* #${warnId}`
         );
     }
 };
