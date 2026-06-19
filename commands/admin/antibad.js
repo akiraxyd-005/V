@@ -1,5 +1,5 @@
 const fs = require('fs');
-const settingsPath = './database/ant bad.json';
+const settingsPath = './database/settings.json';
 
 module.exports = {
     name: 'antibad',
