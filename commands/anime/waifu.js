@@ -23,7 +23,7 @@ module.exports = {
 
         } catch (error) {
             console.error(error);
-            await extra.reply('❌ *Error:* Failed to fetch waifu. Please try again later.');
+            await extra.reply('❌ *Error:* Failed to fetch waifu.');
         }
     }
 };
