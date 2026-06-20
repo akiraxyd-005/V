@@ -9,7 +9,7 @@ module.exports = {
         await extra.reply('⏳ *Finding neko...*');
 
         try {
-            const response = await fetch('https://api.waifu.pics/sfw/neko');
+            const response = await fetch('https://nekos.life/api/v2/img/neko');
             const data = await response.json();
 
             if (!data.url) {
@@ -23,7 +23,7 @@ module.exports = {
 
         } catch (error) {
             console.error(error);
-            await extra.reply('❌ *Error:* Failed to fetch neko. Please try again later.');
+            await extra.reply('❌ *Error:* Failed to fetch neko.');
         }
     }
 };
