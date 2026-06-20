@@ -9,17 +9,18 @@ module.exports = {
         await extra.reply('⏳ *Fetching anime quote...*');
 
         try {
-            const response = await fetch('https://animechan.xyz/api/random');
+            const response = await fetch('https://api.animechan.io/v1/quotes/random');
             const data = await response.json();
 
-            if (!data || !data.quote) {
+            if (!data.success || !data.data) {
                 return extra.reply('❌ Failed to fetch quote. Please try again.');
             }
 
+            const quote = data.data;
             await extra.reply(
                 `💬 *Anime Quote*\n\n` +
-                `"${data.quote}"\n\n` +
-                `- *${data.character}* (${data.anime})`
+                `"${quote.content}"\n\n` +
+                `- *${quote.character.name}* (${quote.anime.name})`
             );
 
         } catch (error) {
