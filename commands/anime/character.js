@@ -14,30 +14,37 @@ module.exports = {
         await extra.reply('⏳ *Searching character...*');
 
         try {
-            const response = await fetch(`https://api.jikan.moe/v4/characters?q=${encodeURIComponent(query)}&limit=1`);
+            const response = await fetch(`https://api.myanimelist.net/v2/characters?q=${encodeURIComponent(query)}&limit=1&fields=id,name,alternative_names,about`, {
+                headers: {
+                    'X-MAL-CLIENT-ID': process.env.MAL_CLIENT_ID || 'YOUR_MAL_CLIENT_ID'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`API Error: ${response.status}`);
+            }
+
             const data = await response.json();
 
             if (!data.data || data.data.length === 0) {
                 return extra.reply(`❌ No character found for "${query}".`);
             }
 
-            const character = data.data[0];
+            const character = data.data[0].node;
             const name = character.name || 'Unknown';
-            const nickname = character.nicknames?.[0] || 'N/A';
+            const altNames = character.alternative_names?.join(', ') || 'N/A';
             const about = character.about || 'No description available.';
-            const url = character.url || '';
 
             await extra.reply(
                 `👤 *Character Info:*\n\n` +
                 `*Name:* ${name}\n` +
-                `*Nickname:* ${nickname}\n\n` +
-                `*About:*\n${about.substring(0, 300)}...\n\n` +
-                `🔗 ${url}`
+                `*Alternative Names:* ${altNames}\n\n` +
+                `*About:*\n${about.substring(0, 400)}...`
             );
 
         } catch (error) {
             console.error(error);
-            await extra.reply('❌ *Error:* Failed to fetch character info. Please try again later.');
+            await extra.reply('❌ *Error:* Failed to fetch character. Make sure you have set MAL_CLIENT_ID.');
         }
     }
 };
