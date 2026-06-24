@@ -26,7 +26,7 @@ module.exports = {
         if (target === sender) {
             await sock.sendMessage(msg.key.remoteJid, {
                 image: { url: (await API.sfw.yeet()).image },
-                caption: `🚀 *${senderName}* yeeted themselves! 🌌`
+                caption: `🚀 *${senderName}* yeeted themselves- fuck gravity 🌌`
             });
             return;
         }
