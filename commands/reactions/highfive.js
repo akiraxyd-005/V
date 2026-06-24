@@ -5,18 +5,37 @@ module.exports = {
     name: 'highfive',
     category: 'reactions',
     description: 'Highfive someone',
-    usage: '§highfive @user',
+    usage: '§highfive @user or reply to a message',
     async execute(sock, msg, args, extra) {
-        let target = 'someone';
+        let target = null;
+        const sender = msg.key.participant || msg.key.remoteJid;
+        
         if (msg.message.extendedTextMessage?.contextInfo?.mentionedJid?.length) {
             target = msg.message.extendedTextMessage.contextInfo.mentionedJid[0];
+        } else if (msg.message.extendedTextMessage?.contextInfo?.quotedMessage) {
+            target = msg.message.extendedTextMessage.contextInfo.participant;
+        }
+        
+        if (!target) {
+            return extra.reply('❌ *Usage:* §highfive @user or reply to someone\'s message');
+        }
+        
+        const senderName = msg.pushName || 'Someone';
+        const targetName = target.split('@')[0];
+        
+        if (target === sender) {
+            await sock.sendMessage(msg.key.remoteJid, {
+                image: { url: (await API.sfw.highfive()).image },
+                caption: `✋ *${senderName}* highfived themselves!"my best friend is myself💔"`
+            });
+            return;
         }
         
         const { image } = await API.sfw.highfive();
         
         await sock.sendMessage(msg.key.remoteJid, {
             image: { url: image },
-            caption: `✋ *${msg.pushName || 'Someone'}* highfived *@${target.split('@')[0]}*!`,
+            caption: `✋ *${senderName}* highfived *@${targetName}*!`,
             mentions: [target]
         });
     }
