@@ -1,0 +1,27 @@
+const fs = require('fs');
+const afkPath = './database/afk.json';
+
+module.exports = {
+    name: 'afk',
+    category: 'tools',
+    description: 'Set AFK status',
+    usage: '§afk <reason>',
+    async execute(sock, msg, args, extra) {
+        const reason = args.length ? args.join(' ') : 'AFK';
+        const userId = msg.key.participant || msg.key.remoteJid;
+        
+        let afkData = {};
+        if (fs.existsSync(afkPath)) {
+            afkData = JSON.parse(fs.readFileSync(afkPath));
+        }
+        
+        afkData[userId] = {
+            reason: reason,
+            time: Date.now()
+        };
+        
+        fs.writeFileSync(afkPath, JSON.stringify(afkData, null, 2));
+        
+        await extra.reply(`✅ *${msg.pushName || 'User'}* is now AFK.\n*Reason:* ${reason}`);
+    }
+};
