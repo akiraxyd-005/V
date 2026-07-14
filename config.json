@@ -1,0 +1,10 @@
+{
+    "botName": "VOLTARIA NEXUS",
+    "version": "3.4.0",
+    "prefix": "§",
+    "owner": ["254108720384@s.whatsapp.net"],
+    "mongodb": "your_mongodb_uri_here",
+    "openaiKey": "your_openai_key_here",
+    "malClientId": "your_mal_client_id_here",
+    "weatherKey": "your_weather_key_here"
+}
